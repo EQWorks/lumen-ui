@@ -317,7 +317,7 @@ ListItem.defaultProps = {
   itemSecondaryAction: '',
   onClick: () => null,
   avatar: '',
-  avatarVariant: 'circle',
+  avatarVariant: 'circular',
   avatarSize: 'md',
   avatarBgColor: '',
   expand: false,
