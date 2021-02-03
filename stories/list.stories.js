@@ -33,7 +33,7 @@ const modifiedDataExpansion = defaultData.map((item, i) => {
 const modifiedDataAvatar = defaultData.map((item, i) => {
   const newFields = [
     { expand: true },
-    { avatarVariant: 'circle', expand: 'start' },
+    { avatarVariant: 'circular', expand: 'start' },
     { avatarVariant: 'square', expand: 'end' },
     { avatarVariant: 'rounded', expand: 'end' },
   ]
@@ -80,7 +80,7 @@ const getAvatarData = (variant, color) => {
   })
   return modifiedData
 }
-const circleVarant = getAvatarData('circle', 'pink')
+const circularVariant = getAvatarData('circular', 'pink')
 const roundedVariant = getAvatarData('rounded', 'grey')
 
 const modifiedDataButton = defaultData.map((item, i) => {
@@ -192,7 +192,7 @@ Avatar.args = {
 export const Chip = Template.bind({})
 
 Chip.args = {
-  data: [...circleVarant, ...roundedVariant],
+  data: [...circularVariant, ...roundedVariant],
   spacing: 2,
 }
 

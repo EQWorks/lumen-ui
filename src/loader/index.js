@@ -207,6 +207,7 @@ Loader.propTypes = {
     'circular',
     'circular determinate',
     'circular determinate label',
+    'linear',
     'linear buffer',
     'linear buffer label',
     'linear determinate',
