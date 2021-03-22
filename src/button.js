@@ -5,6 +5,7 @@ import MUIButton from '@material-ui/core/Button'
 import clsx from 'clsx'
 
 const useStyles = makeStyles((theme) => {
+  console.log('theme: ', theme)
   return {
     label: {
       color: 'rgba(0, 0, 0, 0.0) !important',
@@ -15,11 +16,11 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Button = ({ children, isLoading, noSpacing, type, ...props }) => {
+const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
   const classes = useStyles()
-
+  console.log('props: ', props)
   const styleProps = {
-    color: 'primary',
+    color: color,
     type,
   }
 
@@ -32,7 +33,8 @@ const Button = ({ children, isLoading, noSpacing, type, ...props }) => {
   }
 
   return (
-    <MUIButton className={clsx({ [classes.label]: isLoading,
+    <MUIButton className={clsx({
+      [classes.label]: isLoading,
       [classes.noSpacing]: noSpacing,
     })} data-testid='button' {...styleProps} {...props} >
       {children}
@@ -68,6 +70,7 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
+  color: 'primary'
 }
 
 export default Button

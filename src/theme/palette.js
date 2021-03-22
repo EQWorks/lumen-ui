@@ -18,6 +18,9 @@ const palette = {
     800: '#1564EC',
     900: '#2242CD',
   },
+  test: {
+    800: '#2e7d32'
+  },
   secondary: {
     light: '#9E9E9E',
     main: '#616161',

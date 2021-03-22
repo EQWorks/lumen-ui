@@ -39,6 +39,13 @@ export default {
       },
       type: { name: 'select', required: true },
     },
+    color: {
+      control: {
+        options: ['primary', 'test'],
+        type: 'select',
+      },
+      type: { name: 'select', required: true },
+    }
   },
 }
 
