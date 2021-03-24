@@ -41,7 +41,7 @@ export default {
     },
     color: {
       control: {
-        options: ['primary', 'test'],
+        options: ['primary', 'green'],
         type: 'select',
       },
       type: { name: 'select', required: true },

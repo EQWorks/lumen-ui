@@ -89,7 +89,7 @@ const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, 
   }
 
   const classes = useStyles(styleProps)
-
+  console.log('chip: ', classes)
   return <MUIChip
     className={clsx({
       [classes.chip]: true,

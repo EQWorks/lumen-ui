@@ -18,7 +18,7 @@ const palette = {
     800: '#1564EC',
     900: '#2242CD',
   },
-  test: {
+  green: {
     800: '#2e7d32'
   },
   secondary: {

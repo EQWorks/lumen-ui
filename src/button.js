@@ -3,24 +3,30 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import MUIButton from '@material-ui/core/Button'
 import clsx from 'clsx'
+import Test from './theme/overrides/Test'
+
+const primary = {}
 
 const useStyles = makeStyles((theme) => {
-  console.log('theme: ', theme)
+  const custom = Test('green');
+  console.log('custom: ', custom)
   return {
+    containedPrimary: custom.containedPrimary,
     label: {
       color: 'rgba(0, 0, 0, 0.0) !important',
     },
     noSpacing: {
       padding: theme.spacing(0),
-    },
+    }
   }
 })
 
 const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
   const classes = useStyles()
+  console.log('classes: ', classes)
   console.log('props: ', props)
   const styleProps = {
-    color: color,
+    color: 'primary',
     type,
   }
 
@@ -33,12 +39,16 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
   }
 
   return (
-    <MUIButton className={clsx({
-      [classes.label]: isLoading,
-      [classes.noSpacing]: noSpacing,
-    })} data-testid='button' {...styleProps} {...props} >
-      {children}
-    </MUIButton>
+    <div>
+      <MUIButton className={clsx({
+        [classes.label]: isLoading,
+        [classes.noSpacing]: noSpacing,
+        [classes.containedPrimary]: true
+      })} data-testid='button' {...styleProps} {...props} >
+        {children}
+      </MUIButton>
+    </div>
+
   )
 }
 
@@ -70,7 +80,6 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
-  color: 'primary'
 }
 
 export default Button
