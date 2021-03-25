@@ -45,7 +45,7 @@ export default {
         type: 'select',
       },
       type: { name: 'select', required: true },
-    }
+    },
   },
 }
 

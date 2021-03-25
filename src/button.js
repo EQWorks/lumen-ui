@@ -19,9 +19,10 @@ const useStyles = color => {
       },
       noSpacing: {
         padding: theme.spacing(0),
-      }
+      },
     }
   })
+
   return selectStyle()
 }
 
@@ -46,7 +47,8 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
       <MUIButton className={clsx({
         [classes.label]: isLoading,
         [classes.noSpacing]: noSpacing,
-        [classes.containedPrimary]: true
+        [classes.contained]: true,
+        [classes.containedPrimary]: true,
       })} data-testid='button' {...styleProps} {...props} >
         {children}
       </MUIButton>
@@ -87,7 +89,7 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
-  color: 'primary'
+  color: 'primary',
 }
 
 export default Button
