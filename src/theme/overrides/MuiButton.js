@@ -1,7 +1,6 @@
 import palette from '../palette'
 
 const MuiButton = {
-  // return {
   contained: {
     boxShadow: 'none',
     '&:disabled': {
@@ -46,6 +45,6 @@ const MuiButton = {
     padding: '8px 22px',
   },
 }
-//}
+
 
 export default MuiButton

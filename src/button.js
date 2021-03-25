@@ -5,26 +5,29 @@ import MUIButton from '@material-ui/core/Button'
 import clsx from 'clsx'
 import Test from './theme/overrides/Test'
 
-const primary = {}
+const useStyles = color => {
+  const selectStyle = makeStyles((theme) => {
+    const customColor = Test(color)
 
-const useStyles = makeStyles((theme) => {
-  const custom = Test('green');
-  console.log('custom: ', custom)
-  return {
-    containedPrimary: custom.containedPrimary,
-    label: {
-      color: 'rgba(0, 0, 0, 0.0) !important',
-    },
-    noSpacing: {
-      padding: theme.spacing(0),
+    return {
+      contained: customColor.contained,
+      containedPrimary: customColor.containedPrimary,
+      outlinedPrimary: customColor.outlinedPrimary,
+      textPrimary: customColor.textPrimary,
+      label: {
+        color: 'rgba(0, 0, 0, 0.0) !important',
+      },
+      noSpacing: {
+        padding: theme.spacing(0),
+      }
     }
-  }
-})
+  })
+  return selectStyle()
+}
 
 const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
-  const classes = useStyles()
-  console.log('classes: ', classes)
-  console.log('props: ', props)
+  const classes = useStyles(color)
+
   const styleProps = {
     color: 'primary',
     type,
@@ -73,6 +76,10 @@ Button.propTypes = {
     * The variant to use.
   */
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']).isRequired,
+  /**
+    * The color to use.
+  */
+  color: PropTypes.oneOf(['primary', 'secondary', 'green']).isRequired,
 }
 
 Button.defaultProps = {
@@ -80,6 +87,7 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
+  color: 'primary'
 }
 
 export default Button

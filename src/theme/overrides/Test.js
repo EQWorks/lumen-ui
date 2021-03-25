@@ -2,14 +2,12 @@ import palette from '../palette'
 
 const Test = (color) => {
   const temp = (color || 'primary')
-  console.log('color: ', palette.green[800])
-  console.log('parameters: ', palette[temp][800])
 
   return {
     contained: {
       boxShadow: 'none',
       '&:disabled': {
-        backgroundColor: palette.primary.main,
+        backgroundColor: palette[temp].main,
         color: palette.common.white,
         opacity: 0.5,
       },
@@ -18,29 +16,30 @@ const Test = (color) => {
       },
     },
     containedPrimary: {
+      backgroundColor: palette[temp].main,
       '&:hover': {
         backgroundColor: palette[temp][800],
       },
     },
     outlinedPrimary: {
-      border: `1px solid ${palette.primary.main}`,
+      border: `1px solid ${palette[temp].main}`,
       '&:disabled': {
-        border: `1px solid ${palette.primary.main}`,
-        color: palette.primary.main,
+        border: `1px solid ${palette[temp].main}`,
+        color: palette[temp].main,
         opacity: 0.5,
       },
       '&:hover': {
-        backgroundColor: palette.primary[50],
+        backgroundColor: palette[temp][50],
       },
     },
     textPrimary: {
       padding: '6px 16px',
       '&:disabled': {
-        color: palette.primary.main,
+        color: palette[temp].main,
         opacity: 0.5,
       },
       '&:hover': {
-        backgroundColor: palette.primary[50],
+        backgroundColor: palette[temp][50],
       },
     },
     textSizeSmall: {
