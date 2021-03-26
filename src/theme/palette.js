@@ -1,3 +1,5 @@
+import { red, green, teal, orange, yellow, purple, pink, brown } from '@material-ui/core/colors';
+
 const palette = {
   common: {
     black: '#000000',
@@ -18,21 +20,6 @@ const palette = {
     800: '#1564EC',
     900: '#2242CD',
   },
-  green: {
-    light: '#4caf50',
-    main: '#388e3c',
-    dark: '#1b5e20',
-    50: '#e8f5e9',
-    100: '#c8e6c9',
-    200: '#a5d6a7',
-    300: '#81c784',
-    400: '#66bb6a',
-    500: '#4caf50',
-    600: '#43a047',
-    700: '#388e3c',
-    800: '#2e7d32',
-    900: '#1b5e20',
-  },
   secondary: {
     light: '#9E9E9E',
     main: '#616161',
@@ -47,6 +34,54 @@ const palette = {
     700: '#616161',
     800: '#424242',
     900: '#212121',
+  },
+  red: {
+    light: red[500],
+    main: red[700],
+    dark: red[900],
+    ...red,
+  },
+  green: {
+    light: green[500],
+    main: green[700],
+    dark: green[900],
+    ...green,
+  },
+  teal: {
+    light: teal[500],
+    main: teal[700],
+    dark: teal[900],
+    ...teal,
+  },
+  orange: {
+    light: orange[500],
+    main: orange[700],
+    dark: orange[900],
+    ...orange,
+  },
+  yellow: {
+    light: yellow[500],
+    main: yellow[700],
+    dark: yellow[900],
+    ...yellow,
+  },
+  purple: {
+    light: purple[500],
+    main: purple[700],
+    dark: purple[900],
+    ...purple,
+  },
+  pink: {
+    light: pink[500],
+    main: pink[700],
+    dark: pink[900],
+    ...pink,
+  },
+  brown: {
+    light: brown[500],
+    main: brown[700],
+    dark: brown[900],
+    ...brown,
   },
   error: {
     light: '#ff5533', // selected using MUI's color tool
