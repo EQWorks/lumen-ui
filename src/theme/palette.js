@@ -1,4 +1,4 @@
-import { red, green, teal, orange, yellow, purple, pink, brown } from '@material-ui/core/colors';
+import { red, green, teal, orange, yellow, purple, pink, brown } from '@material-ui/core/colors'
 
 const palette = {
   common: {
