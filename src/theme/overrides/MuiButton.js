@@ -17,11 +17,17 @@ const MuiButton = (color) => {
     },
     containedPrimary: {
       backgroundColor: palette[customColor].main,
+      '&:disabled': {
+        backgroundColor: palette[customColor].main,
+        color: palette.common.white,
+        opacity: 0.5,
+      },
       '&:hover': {
         backgroundColor: palette[customColor][800],
       },
     },
     outlinedPrimary: {
+      color: palette[customColor].main,
       border: `1px solid ${palette[customColor].main}`,
       '&:disabled': {
         border: `1px solid ${palette[customColor].main}`,
@@ -30,10 +36,12 @@ const MuiButton = (color) => {
       },
       '&:hover': {
         backgroundColor: palette[customColor][50],
+        borderColor: palette[customColor].main,
       },
     },
     textPrimary: {
       padding: '6px 16px',
+      color: palette[customColor].main,
       '&:disabled': {
         color: palette[customColor].main,
         opacity: 0.5,

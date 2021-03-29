@@ -9,8 +9,9 @@ const useStyles = color => {
     const customColor = theme.overrides.MuiButton(color)
 
     return {
-      contained: customColor.contained,
       containedPrimary: customColor.containedPrimary,
+      outlinedPrimary: customColor.outlinedPrimary,
+      textPrimary: customColor.textPrimary,
       label: {
         color: 'rgba(0, 0, 0, 0.0) !important',
       },
@@ -44,8 +45,7 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
       <MUIButton className={clsx({
         [classes.label]: isLoading,
         [classes.noSpacing]: noSpacing,
-        [classes.contained]: true,
-        [classes.containedPrimary]: true,
+        [classes[`${props.variant}Primary`]]: true,
       })} data-testid='button' {...styleProps} {...props} >
         {children}
       </MUIButton>
