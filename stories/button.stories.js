@@ -32,9 +32,9 @@ export default {
       },
       type: { name: 'select', required: true },
     },
-    type: {
+    variant: {
       control: {
-        options: ['primary', 'secondary', 'tertiary'],
+        options: ['contained', 'outlined', 'text'],
         type: 'select',
       },
       type: { name: 'select', required: true },

@@ -24,20 +24,16 @@ const useStyles = color => {
   return selectStyle()
 }
 
-const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
+const Button = ({ children, isLoading, noSpacing, variant, color, ...props }) => {
   const classes = useStyles(color)
+
+  if (variant !== 'contained' || 'outlined' || 'text') {
+    variant = 'contained'
+  }
 
   const styleProps = {
     color: 'primary',
-    type,
-  }
-
-  if (type === 'tertiary') {
-    props.variant = 'text'
-  } else if (type === 'secondary') {
-    props.variant = 'outlined'
-  } else {
-    props.variant = 'contained'
+    variant,
   }
 
   return (
@@ -45,7 +41,7 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
       <MUIButton className={clsx({
         [classes.label]: isLoading,
         [classes.noSpacing]: noSpacing,
-        [classes[`${props.variant}Primary`]]: true,
+        [classes[`${variant}Primary`]]: true,
       })} data-testid='button' {...styleProps} {...props} >
         {children}
       </MUIButton>
@@ -74,7 +70,7 @@ Button.propTypes = {
   /**
     * The variant to use.
   */
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']).isRequired,
+  variant: PropTypes.oneOf(['contained', 'outlined', 'text']).isRequired,
   /**
     * The color to use.
   */
@@ -85,7 +81,7 @@ Button.defaultProps = {
   isLoading: false,
   noSpacing: false,
   size: 'medium',
-  type: 'primary',
+  variant: 'contained',
   color: 'primary',
 }
 
