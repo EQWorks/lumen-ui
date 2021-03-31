@@ -4,9 +4,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import MUIButton from '@material-ui/core/Button'
 import clsx from 'clsx'
 
+const colorPalette = ['primary', 'secondary', 'red', 'green', 'teal', 'orange', 'yellow', 'purple', 'pink', 'brown']
+
 const useStyles = color => {
+  const selectColor = colorPalette.includes(color) ? color : 'primary'
+
   const selectStyle = makeStyles((theme) => {
-    const customColor = theme.overrides.MuiButton(color)
+    const customColor = theme.overrides.MuiButton(selectColor)
 
     return {
       containedPrimary: customColor.containedPrimary,
@@ -72,7 +76,7 @@ Button.propTypes = {
   /**
     * The color to use.
   */
-  color: PropTypes.oneOf(['primary', 'secondary', 'red', 'green', 'teal', 'orange', 'yellow', 'purple', 'pink', 'brown']).isRequired,
+  color: PropTypes.oneOf(colorPalette).isRequired,
 }
 
 Button.defaultProps = {
