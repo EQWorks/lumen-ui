@@ -2,34 +2,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import MUIButton from '@material-ui/core/Button'
+import { getContrastRatio } from '@material-ui/core/styles/colorManipulator'
 import clsx from 'clsx'
 
 const colorPalette = ['primary', 'secondary', 'red', 'green', 'teal', 'orange', 'yellow', 'purple', 'pink', 'brown']
 
-const useStyles = color => {
+const useStyles = (color) => makeStyles((theme) => {
   const selectColor = colorPalette.includes(color) ? color : 'primary'
 
-  const selectStyle = makeStyles((theme) => {
-    const customColor = theme.overrides.MuiButton(selectColor)
+  const ratioToWhite = getContrastRatio(theme.palette[selectColor].main, '#FFF')
+  const ratioToBlack = getContrastRatio(theme.palette[selectColor].main, '#000')
 
-    return {
-      containedPrimary: customColor.containedPrimary,
-      outlinedPrimary: customColor.outlinedPrimary,
-      textPrimary: customColor.textPrimary,
-      label: {
-        color: 'rgba(0, 0, 0, 0.0) !important',
-      },
-      noSpacing: {
-        padding: theme.spacing(0),
-      },
-    }
-  })
+  const textColor = ratioToWhite + 2 >= ratioToBlack ? 'white' : 'black'
 
-  return selectStyle()
-}
+  const customColor = theme.overrides.MuiButton(selectColor, textColor)
+
+  return {
+    containedPrimary: customColor.containedPrimary,
+    outlinedPrimary: customColor.outlinedPrimary,
+    textPrimary: customColor.textPrimary,
+    label: {
+      color: 'rgba(0, 0, 0, 0.0) !important',
+    },
+    noSpacing: {
+      padding: theme.spacing(0),
+    },
+  }
+})
 
 const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
-  const classes = useStyles(color)
+  const classes = useStyles(color)()
 
   const styleProps = {
     color: 'primary',
@@ -84,7 +86,7 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
-  color: 'primary',
+  color: 'default',
 }
 
 export default Button

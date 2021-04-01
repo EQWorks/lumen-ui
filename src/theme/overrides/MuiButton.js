@@ -1,14 +1,13 @@
 import palette from '../palette'
 
-const MuiButton = (color) => {
-  const customColor = (color || 'primary')
-
+const MuiButton = (color, textColor) => {
+  console.log('textColor: ', textColor)
   return {
     contained: {
       boxShadow: 'none',
       '&:disabled': {
-        backgroundColor: palette[customColor].main,
-        color: palette.common.white,
+        backgroundColor: palette[color].main,
+        color: palette.common[textColor],
         opacity: 0.5,
       },
       '&:hover': {
@@ -16,38 +15,39 @@ const MuiButton = (color) => {
       },
     },
     containedPrimary: {
-      backgroundColor: palette[customColor].main,
+      backgroundColor: palette[color].main,
+      color: palette.common[textColor],
       '&:disabled': {
-        backgroundColor: palette[customColor].main,
-        color: palette.common.white,
+        backgroundColor: palette[color].main,
+        color: palette.common[textColor],
         opacity: 0.5,
       },
       '&:hover': {
-        backgroundColor: palette[customColor][800],
+        backgroundColor: palette[color][800],
       },
     },
     outlinedPrimary: {
-      color: palette[customColor].main,
-      border: `1px solid ${palette[customColor].main}`,
+      color: palette[color].main,
+      border: `1px solid ${palette[color].main}`,
       '&:disabled': {
-        border: `1px solid ${palette[customColor].main}`,
-        color: palette[customColor].main,
+        border: `1px solid ${palette[color].main}`,
+        color: palette[color].main,
         opacity: 0.5,
       },
       '&:hover': {
-        backgroundColor: palette[customColor][50],
-        borderColor: palette[customColor].main,
+        backgroundColor: palette[color][50],
+        borderColor: palette[color].main,
       },
     },
     textPrimary: {
       padding: '6px 16px',
-      color: palette[customColor].main,
+      color: palette[color].main,
       '&:disabled': {
-        color: palette[customColor].main,
+        color: palette[color].main,
         opacity: 0.5,
       },
       '&:hover': {
-        backgroundColor: palette[customColor][50],
+        backgroundColor: palette[color][50],
       },
     },
     textSizeSmall: {
