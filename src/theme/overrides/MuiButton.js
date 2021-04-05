@@ -1,13 +1,12 @@
 import palette from '../palette'
 
 const MuiButton = (color, textColor) => {
-  console.log('textColor: ', textColor)
   return {
     contained: {
       boxShadow: 'none',
       '&:disabled': {
         backgroundColor: palette[color].main,
-        color: palette.common[textColor],
+        color: textColor,
         opacity: 0.5,
       },
       '&:hover': {
@@ -16,10 +15,10 @@ const MuiButton = (color, textColor) => {
     },
     containedPrimary: {
       backgroundColor: palette[color].main,
-      color: palette.common[textColor],
+      color: textColor,
       '&:disabled': {
         backgroundColor: palette[color].main,
-        color: palette.common[textColor],
+        color: textColor,
         opacity: 0.5,
       },
       '&:hover': {

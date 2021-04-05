@@ -2,18 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import MUIButton from '@material-ui/core/Button'
-import { getContrastRatio } from '@material-ui/core/styles/colorManipulator'
 import clsx from 'clsx'
+import { determineTextColor } from './util/basic-functions'
 
 const colorPalette = ['primary', 'secondary', 'red', 'green', 'teal', 'orange', 'yellow', 'purple', 'pink', 'brown']
 
 const useStyles = (color) => makeStyles((theme) => {
   const selectColor = colorPalette.includes(color) ? color : 'primary'
 
-  const ratioToWhite = getContrastRatio(theme.palette[selectColor].main, '#FFF')
-  const ratioToBlack = getContrastRatio(theme.palette[selectColor].main, '#000')
-
-  const textColor = ratioToWhite + 2 >= ratioToBlack ? 'white' : 'black'
+  const textColor = determineTextColor(theme.palette[selectColor].main)
 
   const customColor = theme.overrides.MuiButton(selectColor, textColor)
 
@@ -86,7 +83,7 @@ Button.defaultProps = {
   noSpacing: false,
   size: 'medium',
   type: 'primary',
-  color: 'default',
+  color: 'primary',
 }
 
 export default Button
