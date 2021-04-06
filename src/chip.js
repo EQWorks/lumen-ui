@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import { fade, getContrastRatio } from '@material-ui/core/styles/colorManipulator'
+import { fade } from '@material-ui/core/styles/colorManipulator'
 import MUIChip from '@material-ui/core/Chip'
 import clsx from 'clsx'
+import { determineTextColor } from './util/basic-functions'
 
 const useStyles = makeStyles((theme) => ({
   chip: {
@@ -51,12 +52,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const determineColor = backgroundColor => {
-  const ratioToWhite = getContrastRatio(backgroundColor, '#FFF')
-  const ratioToBlack = getContrastRatio(backgroundColor, '#000')
-  return ratioToWhite >= ratioToBlack ? '#FFF' : '#000'
-}
-
 const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, ...props }) => {
   const theme = useTheme()
 
@@ -83,7 +78,7 @@ const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, 
       ? theme.palette.common.black : theme.palette.common.white,
     custom: {
       backgroundColor: customColor,
-      color: determineColor(customColor),
+      color: determineTextColor(customColor),
     },
     margin: margin,
   }

@@ -1,3 +1,5 @@
+import { red, green, teal, orange, yellow, purple, pink, brown } from '@material-ui/core/colors'
+
 const palette = {
   common: {
     black: '#000000',
@@ -32,6 +34,54 @@ const palette = {
     700: '#616161',
     800: '#424242',
     900: '#212121',
+  },
+  red: {
+    light: red[500],
+    main: red[700],
+    dark: red[900],
+    ...red,
+  },
+  green: {
+    light: green[500],
+    main: green[700],
+    dark: green[900],
+    ...green,
+  },
+  teal: {
+    light: teal[500],
+    main: teal[700],
+    dark: teal[900],
+    ...teal,
+  },
+  orange: {
+    light: orange[500],
+    main: orange[700],
+    dark: orange[900],
+    ...orange,
+  },
+  yellow: {
+    light: yellow[500],
+    main: yellow[700],
+    dark: yellow[900],
+    ...yellow,
+  },
+  purple: {
+    light: purple[500],
+    main: purple[700],
+    dark: purple[900],
+    ...purple,
+  },
+  pink: {
+    light: pink[500],
+    main: pink[700],
+    dark: pink[900],
+    ...pink,
+  },
+  brown: {
+    light: brown[500],
+    main: brown[700],
+    dark: brown[900],
+    ...brown,
   },
   error: {
     light: '#ff5533', // selected using MUI's color tool
