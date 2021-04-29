@@ -7,7 +7,7 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded'
-import { Chip, Typography } from '@eqworks/lumen-ui'
+import { Chip, Typography } from '../src'
 
 import { StyledCardContainer } from '../src'
 import { subsData, bundlesData, categoriesData } from './data/card-info'
