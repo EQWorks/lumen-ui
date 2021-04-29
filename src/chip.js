@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { fade } from '@material-ui/core/styles/colorManipulator'
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, ...props }) => {
+const Chip = forwardRef(({ clickable, color, custom, onDelete, rectangle, variant, margin, ...props }, ref) => {
   const theme = useTheme()
 
   const checkValidColor = (color) => {
@@ -86,6 +86,7 @@ const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, 
   const classes = useStyles(styleProps)
 
   return <MUIChip
+    ref={ref}
     className={clsx({
       [classes.chip]: true,
       [classes.clickable]: clickable,
@@ -103,7 +104,7 @@ const Chip = ({ clickable, color, custom, onDelete, rectangle, variant, margin, 
     variant={variant}
     {...props}
   />
-}
+})
 
 Chip.propTypes = {
   /**
@@ -143,5 +144,7 @@ Chip.defaultProps = {
   variant: 'default',
   margin: 0,
 }
+
+Chip.displayName = 'Chip'
 
 export default Chip

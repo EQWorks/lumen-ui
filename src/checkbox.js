@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import MUICheckbox from '@material-ui/core/Checkbox'
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Checkbox = ({ checked, ...props }) => {
+const Checkbox = forwardRef(({ checked, ...props }, ref) => {
   const classes = useStyles()
   const [checkedState, setCheckedState] = useState(checked)
   const checkOnChange = (e) => {
@@ -70,6 +70,7 @@ const Checkbox = ({ checked, ...props }) => {
   }
   return (
     <MUICheckbox
+      ref={ref}
       data-testid="checkbox"
       disableRipple
       checked={checkedState}
@@ -82,7 +83,7 @@ const Checkbox = ({ checked, ...props }) => {
       {...props}
     />
   )
-}
+})
 
 Checkbox.propTypes = {
   /**
@@ -95,5 +96,7 @@ Checkbox.defaultProps = {
   checked: false,
   disabled: false,
 }
+
+Checkbox.displayName = 'Checkbox'
 
 export default Checkbox

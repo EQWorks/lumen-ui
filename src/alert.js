@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import MUIAlert from '@material-ui/lab/Alert'
 import AlertTitle from '@material-ui/lab/AlertTitle'
 
-const Alert = ({ severity, message, header, width, ...props }) => {
+const Alert = forwardRef(({ severity, message, header, width, ...props }, ref) => {
   const dimensions = { height: 'auto', width }
 
   return (
     <div data-testid='alert' style={dimensions}>
       {header ? (
-        <MUIAlert severity={severity} {...props}>
+        <MUIAlert ref={ref} severity={severity} {...props}>
           <AlertTitle>
             <strong>{header}</strong>
           </AlertTitle>
@@ -22,7 +22,7 @@ const Alert = ({ severity, message, header, width, ...props }) => {
       )}
     </div>
   )
-}
+})
 
 Alert.propTypes = {
   /**
@@ -51,5 +51,7 @@ Alert.defaultProps = {
   variant: 'standard',
   width: '100%',
 }
+
+Alert.displayName = 'Alert'
 
 export default Alert

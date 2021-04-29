@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import MUIRadio from '@material-ui/core/Radio'
@@ -52,10 +52,11 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Radio = (props) => {
+const Radio = forwardRef((props, ref) => {
   const classes = useStyles()
   return (
     <MUIRadio
+      ref={ref}
       checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
       className={classes.root}
       color='default'
@@ -65,6 +66,8 @@ const Radio = (props) => {
       {...props}
     />
   )
-}
+})
+
+Radio.displayName = 'Radio'
 
 export default Radio
