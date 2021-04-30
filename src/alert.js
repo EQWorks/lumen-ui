@@ -1,25 +1,25 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
+
+import { makeStyles } from '@material-ui/core/styles'
 import MUIAlert from '@material-ui/lab/Alert'
 import AlertTitle from '@material-ui/lab/AlertTitle'
 
-const Alert = forwardRef(({ severity, message, header, width, ...props }, ref) => {
-  const dimensions = { height: 'auto', width }
+const useStyles = makeStyles({ root: ({ width = '100%' }) => ({ height: 'auto', width }) })
+
+const Alert = forwardRef(({ message, header, width, ...props }, ref) => {
+  const classes = useStyles({ width })
 
   return (
-    <div data-testid='alert' style={dimensions}>
-      {header ? (
-        <MUIAlert ref={ref} severity={severity} {...props}>
+    <div data-testid='alert' className={classes.root}>
+      <MUIAlert ref={ref} {...props}>
+        {header && (
           <AlertTitle>
             <strong>{header}</strong>
           </AlertTitle>
-          {message}
-        </MUIAlert>
-      ) : (
-        <MUIAlert severity={severity} {...props}>
-          {message}
-        </MUIAlert>
-      )}
+        )}
+        {message}
+      </MUIAlert>
     </div>
   )
 })
@@ -34,21 +34,13 @@ Alert.propTypes = {
   */
   message: PropTypes.string.isRequired,
   /**
-    * The severity of the alert. This defines the color and icon used.
-  */
-  severity: PropTypes.oneOf(['error', 'warning', 'info', 'success']).isRequired,
-  /**
-    * The variant to use.
-  */
-  variant: PropTypes.oneOf(['standard', 'outlined', 'filled']).isRequired,
-  /**
     * The width of the component.
   */
   width: PropTypes.string,
 }
 
 Alert.defaultProps = {
-  variant: 'standard',
+  header: null,
   width: '100%',
 }
 
