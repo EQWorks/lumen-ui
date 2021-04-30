@@ -27,7 +27,7 @@ const ModalContainer = ({ maxWidth, children }) => {
 
 ModalContainer.propTypes = {
   children: PropTypes.node.isRequired,
-  maxWidth: PropTypes.string,
+  maxWidth: PropTypes.number,
 }
 
 ModalContainer.defaultProps = {
