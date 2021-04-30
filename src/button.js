@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import MUIButton from '@material-ui/core/Button'
@@ -27,7 +27,7 @@ const useStyles = (color) => makeStyles((theme) => {
   }
 })
 
-const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
+const Button = forwardRef(({ children, isLoading, noSpacing, type, color, ...props }, ref) => {
   const classes = useStyles(color)()
 
   const styleProps = {
@@ -39,7 +39,7 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
 
   return (
     <div>
-      <MUIButton className={clsx({
+      <MUIButton ref={ref} className={clsx({
         [classes.label]: isLoading,
         [classes.noSpacing]: noSpacing,
         [classes[`${variantType}Primary`]]: true,
@@ -49,7 +49,7 @@ const Button = ({ children, isLoading, noSpacing, type, color, ...props }) => {
     </div>
 
   )
-}
+})
 
 Button.propTypes = {
   /**
@@ -85,5 +85,7 @@ Button.defaultProps = {
   type: 'primary',
   color: 'primary',
 }
+
+Button.displayName = 'Button'
 
 export default Button

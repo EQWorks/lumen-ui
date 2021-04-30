@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Switch from '@material-ui/core/Switch'
 
@@ -69,14 +69,16 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const StyledSwitch = (props) => {
+const StyledSwitch = forwardRef((props,ref) => {
   const classes = useStyles(props)
-  return <Switch classes={classes} data-testid='switch' disableRipple {...props} />
-}
+  return <Switch ref={ref} classes={classes} data-testid='switch' disableRipple {...props} />
+})
 
 StyledSwitch.defaultProps = {
   checked: false,
   disabled: false,
 }
+
+StyledSwitch.displayName = 'Switch'
 
 export default StyledSwitch

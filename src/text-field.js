@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const TextField = ({
+const TextField = forwardRef(({
   inputProps,
   label,
   startAdornment,
@@ -53,7 +53,7 @@ const TextField = ({
   error,
   multiline,
   ...props
-}) => {
+}, ref) => {
   const classes = useStyles()
   const dimensions = { width, height: multiline ? 'auto' : height }
   const inp = {
@@ -93,6 +93,7 @@ const TextField = ({
     <div>
       <InputLabel
         id="label"
+        ref={ref}
         shrink
         className={error ? classes.labelError : classes.label}
       >
@@ -119,7 +120,7 @@ const TextField = ({
       </FormHelperText>
     </div>
   )
-}
+})
 
 TextField.propTypes = {
   /**
@@ -199,5 +200,7 @@ TextField.defaultProps = {
   startAdornment: '',
   width: '380px',
 }
+
+TextField.displayName = 'TextField'
 
 export default TextField
