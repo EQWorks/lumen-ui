@@ -1,6 +1,6 @@
 {
   "name": "@eqworks/lumen-ui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Design system MUI based components, graduated from react-labs",
   "main": "dist/index.js",
   "source": "src/index.js",
