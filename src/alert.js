@@ -1,28 +1,21 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-import { makeStyles } from '@material-ui/core/styles'
 import MUIAlert from '@material-ui/lab/Alert'
 import AlertTitle from '@material-ui/lab/AlertTitle'
 
-const useStyles = makeStyles({ root: ({ width = '100%' }) => ({ height: 'auto', width }) })
-
-const Alert = forwardRef(({ message, header, width, ...props }, ref) => {
-  const classes = useStyles({ width })
-
-  return (
-    <div data-testid='alert' className={classes.root}>
-      <MUIAlert ref={ref} {...props}>
-        {header && (
-          <AlertTitle>
-            <strong>{header}</strong>
-          </AlertTitle>
-        )}
-        {message}
-      </MUIAlert>
-    </div>
-  )
-})
+const Alert = forwardRef(({ message, header, ...props }, ref) => (
+  <div data-testid='alert'>
+    <MUIAlert ref={ref} {...props}>
+      {header && (
+        <AlertTitle>
+          <strong>{header}</strong>
+        </AlertTitle>
+      )}
+      {message}
+    </MUIAlert>
+  </div>
+))
 
 Alert.propTypes = {
   /**
@@ -33,16 +26,9 @@ Alert.propTypes = {
     * The message of the component.
   */
   message: PropTypes.string.isRequired,
-  /**
-    * The width of the component.
-  */
-  width: PropTypes.string,
 }
 
-Alert.defaultProps = {
-  header: null,
-  width: '100%',
-}
+Alert.defaultProps = { header: null }
 
 Alert.displayName = 'Alert'
 
