@@ -38,16 +38,13 @@ const Button = forwardRef(({ children, isLoading, noSpacing, type, color, ...pro
   const variantType = type === 'secondary' ? 'outlined' : type === 'tertiary' ? 'text' : 'contained'
 
   return (
-    <div>
-      <MUIButton ref={ref} className={clsx({
-        [classes.label]: isLoading,
-        [classes.noSpacing]: noSpacing,
-        [classes[`${variantType}Primary`]]: true,
-      })} data-testid='button' variant={variantType} {...styleProps} {...props} >
-        {children}
-      </MUIButton>
-    </div>
-
+    <MUIButton ref={ref} className={clsx({
+      [classes.label]: isLoading,
+      [classes.noSpacing]: noSpacing,
+      [classes[`${variantType}Primary`]]: true,
+    })} data-testid='button' variant={variantType} {...styleProps} {...props} >
+      {children}
+    </MUIButton>
   )
 })
 
