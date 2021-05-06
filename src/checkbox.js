@@ -75,7 +75,7 @@ const Checkbox = forwardRef(({ checked, ...props }, ref) => {
       disableRipple
       checked={checkedState}
       checkedIcon={
-        <span className={checkedState ? classes.checkedIcon : classes.icon} />
+        <span className={checked ? classes.checkedIcon : classes.icon} />
       }
       className={classes.root}
       icon={<span className={classes.icon} />}
