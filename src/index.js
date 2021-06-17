@@ -2,7 +2,7 @@ import withRef from './with-ref'
 import TabPanels from './tab-panels'
 
 const TabPanelsWithRef = withRef(TabPanels)
-TabPanelsWithRef.displayName= 'TabPanelsWithRef'
+TabPanelsWithRef.displayName = 'TabPanelsWithRef'
 
 // untouched material-ui
 export { default as FormControl } from '@material-ui/core/FormControl'
@@ -27,4 +27,7 @@ export { default as TabPanels } from './tab-panels'
 export { default as TextField } from './text-field'
 export { default as Typography } from './typography'
 export { default as withRef } from './with-ref'
+export { default as Modal } from './modal'
+export { default as ModalContainer } from './modal-container'
+export { default as StyledCardContainer } from './styled-card-container'
 export { TabPanelsWithRef }
