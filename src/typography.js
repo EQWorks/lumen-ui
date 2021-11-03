@@ -18,7 +18,7 @@ const Typography = forwardRef(({ marginBottom, children, secondary, ...rest }, r
 
 Typography.propTypes = { 
   marginBottom: PropTypes.number,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   secondary: PropTypes.number,
 }
 Typography.defaultProps = { 

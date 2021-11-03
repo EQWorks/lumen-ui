@@ -17,9 +17,9 @@ export default {
       defaultValue: '',
       description: 'Toggle demonstration loading times for component.',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'node' },
       },
-      type: { name: 'string', required: true },
+      type: { name: 'node', required: true },
     },
     variant: {
       control: {
@@ -124,7 +124,7 @@ Template.propTypes = {
   /**
    * The children of the component.
    */
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   /**
    * Applies the theme typography styles.
    */
